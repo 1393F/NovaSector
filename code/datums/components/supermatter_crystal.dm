@@ -315,9 +315,12 @@
 		// NOVA EDIT ADDITION START - Supermatter clone replacement
 		if(ishuman(consumed_mob))
 			var/mob/living/carbon/human/consumed_human = consumed_mob
-			consumed_human.replace_with_clone()
+			consumed_human.death()
+			consumed_human.apply_damage(600, BURN, spread_damage = TRUE)
+			consumed_human.become_husk(BURN)
+			create_consumed_anomaly(consumed_human)
+
 		// NOVA EDIT ADDITION END
-		consumed_mob.dust(force = TRUE)
 		matter_increase += 100 * object_size * 2
 		if(is_clown_job(consumed_mob.mind?.assigned_role))
 			damage_increase += rand(-30, 30) * 2 // HONK

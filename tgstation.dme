@@ -9653,6 +9653,7 @@
 #include "modular_nova\modules\subsystems\code\ticket_ping\adminhelp.dm"
 #include "modular_nova\modules\subsystems\code\ticket_ping\preference.dm"
 #include "modular_nova\modules\subsystems\code\ticket_ping\ticket_ss.dm"
+#include "modular_nova\modules\supermatter_dusting\supermatter_dusting.dm"
 #include "modular_nova\modules\supersoups\code\soup_mixtures.dm"
 #include "modular_nova\modules\supersoups\code\stove.dm"
 #include "modular_nova\modules\syndie_edits\code\area.dm"
