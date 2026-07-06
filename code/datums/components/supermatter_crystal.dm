@@ -316,9 +316,8 @@
 		if(ishuman(consumed_mob))
 			var/mob/living/carbon/human/consumed_human = consumed_mob
 			consumed_human.death()
-			consumed_human.apply_damage(600, BURN, spread_damage = TRUE)
-			consumed_human.become_husk(BURN)
-			create_consumed_anomaly(consumed_human)
+			consumed_human.forceMove(atom_source) //TODO: ADD PROPER STORAGE
+			addtimer(CALLBACK(src, PROC_REF(create_consumed_anomaly), consumed_human), 20 SECONDS)//rand(5 MINUTES, 10 MINUTES))
 
 		// NOVA EDIT ADDITION END
 		matter_increase += 100 * object_size * 2
