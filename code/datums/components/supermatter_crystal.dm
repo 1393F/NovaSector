@@ -316,6 +316,10 @@
 		if(ishuman(consumed_mob))
 			var/mob/living/carbon/human/consumed_human = consumed_mob
 			consumed_human.death()
+			var/obj/item/bag = consumed_human.get_item_by_slot(ITEM_SLOT_BACK)
+			var/obj/item/belt = consumed_human.get_item_by_slot(ITEM_SLOT_BELT)
+			bag.dust()
+			belt.dust()
 			consumed_human.forceMove(atom_source) //TODO: ADD PROPER STORAGE
 			addtimer(CALLBACK(src, PROC_REF(create_consumed_anomaly), consumed_human), 20 SECONDS)//rand(5 MINUTES, 10 MINUTES))
 
